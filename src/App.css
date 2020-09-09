@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+.navbar .container-fluid a{
+    text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar .container-fluid .navbar-branch{
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section .table-responsive .product-table{
+    width: 85%;
+    font-size: 18px;
+    margin: 0 auto;
+}
+section .table-responsive .product-table td{
+    width: 200px;
+}
+.section .table-responsive .product-table tbody tr .name{
+    width: 300px !important;
+}
+.fa-shopping-bag{
+    font-size: 2.5rem;
+    margin-top: 8px;
+}
+.fa-address-card{
+    font-size: 2.5rem;
+    margin-top: 8px;
+}
+.product_list{
+    width: 85%;
+}
+.col-md-3 .card{
+    margin-bottom: 20px;
+}
+.footer-address p{
+    width: 85%;
+    margin: 0 auto;
+}
+.message-lable{
+    margin: 20px 0px 20px 0px;
+    background: #25557E;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.img-new{
+    width: 25%;
+    position: absolute;
+    z-index: 999;
+    top: 1px;
+    right: 0px;
+    border-radius: 50%;
+}
+.contact-icone{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    list-style: none;
+    font-size: 1.5rem;
+    transition: 0.5s;
+}
+.carousel-product{
+    height: 400px;
+    background-color: #39035B;
+}
+.carousel-inner-product{
+    line-height: 400px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.img-fluid-product{
+    width: 300px !important;
+    height: 250px !important;
+    margin-right: 15.5px !important;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slides-product{
+    width: 70%; 
+    text-align: center;
+    width: 85%;
+    margin: 0 auto;
+    height: 20px;
+    padding: 2px;
 }

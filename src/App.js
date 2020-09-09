@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Menu from './components/Menu/Menu';
+import Footer from './components/Footer/Footer';
+import MutoTop from './components/Footer/MutoTop';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import routes from './routes';
+import Contact from './components/Contact/Contact';
 
-function App() {
+const App = () => {
+
+  const onShowContent = routes => {
+    let result = null;
+    if (routes && routes.length > 0) {
+      result = routes.map((route, index) => {
+        return <Route key={index} path={route.path} component={route.main} exact={route.exact} />
+      })
+    }
+    return <Switch>{result}</Switch>
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Menu />
+      {onShowContent(routes)}
+      <Footer />
+      <Contact />
+      <MutoTop />
+    </Router>
   );
 }
 
