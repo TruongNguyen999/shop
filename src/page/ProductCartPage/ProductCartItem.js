@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { axios_API_dispatch_product_delete, axios_API_disptch_update_product_card } from '../../actions';
+import { changeMessage_Dispatch, changeMessageDelete_Dispatch } from '../../actions/mesage';
+import * as message from './../../contants/Message';
 
 const ProductCartItem = props => {
 
-    const { product, deleteProduct, updateProduct } = props
+    const { product, deleteProduct, updateProduct, updateMessage, deleteMessage } = props
 
     const ToTal = (price, quantity) => {
         let result = 0;
@@ -13,12 +15,16 @@ const ProductCartItem = props => {
     }
 
     const DeleteProduct = product => {
-        deleteProduct(product)
+        if (confirm('Bạn thật sự muốn xóa!')) {//eslint-disable-line
+            deleteProduct(product)
+            deleteMessage(message.MESSAGE_DELETE)
+        }
     }
 
     const onUpdateProductInCart = (product, quantity) => {
         if (quantity > 0) {
             updateProduct(product, quantity)
+            updateMessage(message.MESSAGE_UPDATE)
         }
     }
 
@@ -108,7 +114,7 @@ const ProductCartItem = props => {
                         >
                             <a
                                 href
-                            >
+                            >   
                                 —
                                 </a>
                         </label>
@@ -217,6 +223,12 @@ const mapDispatchToProps = (dispatch, props) => {
         },
         updateProduct: (product, quantity) => {
             dispatch(axios_API_disptch_update_product_card(product, quantity))
+        },
+        updateMessage: message => {
+            dispatch(changeMessage_Dispatch(message))
+        },
+        deleteMessage: message => {
+            dispatch(changeMessageDelete_Dispatch(message))
         }
     }
 }

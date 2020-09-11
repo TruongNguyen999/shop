@@ -20,7 +20,7 @@ const routes = [
     {
         path: '/product-cart',
         exact: false,
-        main: () => <PrdoductCartPage />
+        main: ({ history }) => <PrdoductCartPage history={history} />
     },
     {
         path: '/product-detail',

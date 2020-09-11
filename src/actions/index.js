@@ -122,3 +122,15 @@ export const axios_API_disptch_update_product_card = (product, quantity) => {
         dispatch(axios_API_update_product_card(product.id, quantity))
     }
 }
+
+export const axios_clear_card = () => {
+    return {
+        type: Types.AXIOS_API_CLEAR_CARD
+    }
+}
+
+export const axios_API_clear_dispatch = () => {
+    return dispatch => {
+        dispatch(axios_clear_card())
+    }
+}

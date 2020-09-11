@@ -1,6 +1,7 @@
 import * as Types from './../contants/Types';
 
-const initialState = [];
+const card = JSON.parse(localStorage.getItem('card'));
+const initialState = card ? card : [];
 
 const findIndex = (state, id) => {
     let result
@@ -29,10 +30,12 @@ const CartProduct = (state = initialState, action) => {
             } else {
                 state.push(action.product);
             }
+            localStorage.setItem('card', JSON.stringify(state));
             return [...state]
         case Types.AXIOS_API_DELETE_PRODUCT:
             index = findIndex(state, action.id)
             state.splice(index, 1)
+            localStorage.setItem('card', JSON.stringify(state));
             return [...state]
         case Types.AXIOS_API_UPDATE_PRODUCT_CARD:
             index = findIndex(state, action.id)
@@ -40,6 +43,11 @@ const CartProduct = (state = initialState, action) => {
                 ...state[index],
                 quantity: action.quantity
             }
+            localStorage.setItem('card', JSON.stringify(state));
+            return [...state]
+        case Types.AXIOS_API_CLEAR_CARD:
+            state = []
+            localStorage.setItem('card', JSON.stringify(state));
             return [...state]
         default:
             return [...state]

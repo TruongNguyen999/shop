@@ -83,3 +83,9 @@ section .table-responsive .product-table td{
     height: 20px;
     padding: 2px;
 }
+.message-danger{
+    width: 85%;
+    margin-top: 10px;
+    line-height: 5px;
+    transition: 0.5s;
+}
