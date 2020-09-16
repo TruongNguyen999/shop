@@ -89,3 +89,33 @@ section .table-responsive .product-table td{
     line-height: 5px;
     transition: 0.5s;
 }
+.mr-0{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.caterory{
+    color:#a68dd6;
+}
+.bg-list li{
+    background-color: rgba(82, 66, 117, 0.8);
+    color: white;
+    transition: 0.5s;
+}
+.bg-list li:hover{
+    opacity: 0.7;
+    font-weight: bold;
+}
+.product-detail{
+    width: 95%;
+}
+.imageDeatil{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.category-list{
+    text-decoration: none !important;
+    color: white !important;
+    display: block;
+}

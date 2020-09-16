@@ -36,7 +36,7 @@ const Footer = props => {
                 </div>
             </footer>
         </>
-    );
+    )
 }
 
 const mapStateToProps = state => {

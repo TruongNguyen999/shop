@@ -7,7 +7,7 @@ const findIndex = (state, id) => {
     let result
     state.forEach((product, index) => {
         if (product.id === id) {
-            result = index;
+            result = index
         }
     });
     return result;

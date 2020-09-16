@@ -8,6 +8,8 @@ const Message = (state = initialState, action) => {
             return action.message
         case Types.MESSAGE_DELETE:
             return action.message
+        case Types.MESSAGE_ADD:
+            return action.message
         default:
             return state
     }

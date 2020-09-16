@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Product_Cart_dispatch } from '../../actions';
+import { axios_API_dispatch_product_detail, Product_Cart_dispatch } from '../../actions';
+import * as message from './../../contants/Message';
+import { changeMessage_add_dispatch } from '../../actions/mesage';
 
-const ProductItem = (props) => {
+const ProductItem = props => {
 
-    const { product, add_product } = props;
+    const { product, add_product, changeMessage, setProduct } = props;
 
     const onShowRatting = ratting => {
         let result = [];
@@ -22,13 +24,18 @@ const ProductItem = (props) => {
 
     const onAddToCart = (product) => {
         add_product(product);
+        changeMessage(message.MESSAGE_ADD)
+    }
+
+    const setProductDetail = product => {
+        setProduct(product)
     }
 
     return (
         <div className="col-md-3">
             <div className="card text-center">
                 <div className="card-img">
-                    <Link to='product-detail'>
+                    <Link to='product-detail' onClick={() => setProductDetail(product)}>
                         <img src={product.product.images} alt={product.product.name} className="img-fluid" />
                     </Link>
                 </div>
@@ -57,6 +64,12 @@ const mapDispatchToProps = (dispatch, props) => {
     return {
         add_product: product => {
             dispatch(Product_Cart_dispatch(product))
+        },
+        changeMessage: message => {
+            dispatch(changeMessage_add_dispatch(message))
+        },
+        setProduct: product => {
+            dispatch(axios_API_dispatch_product_detail(product))
         }
     }
 }

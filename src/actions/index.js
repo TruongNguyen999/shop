@@ -134,3 +134,18 @@ export const axios_API_clear_dispatch = () => {
         dispatch(axios_clear_card())
     }
 }
+
+// set product detail
+
+export const axios_set_product_detail = product => {
+    return {
+        type: Types.AXIOS_API_SET_PRODUCT_DETAIL,
+        product
+    }
+}
+
+export const axios_API_dispatch_product_detail = product => {
+    return  dispatch => {
+        dispatch(axios_set_product_detail(product))
+    }
+}

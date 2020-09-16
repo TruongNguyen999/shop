@@ -1,14 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Product_Cart_dispatch } from '../../actions';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { axios_API_dispatch_product_detail, Product_Cart_dispatch } from '../../actions'
+import * as message from './../../contants/Message'
+import { changeMessage_add_dispatch } from '../../actions/mesage'
 
 const ProductItemHot = props => {
 
-    const { product, addToCard } = props;
+    const { product, addToCard, changeMessage, setProduct } = props
 
     const onShowRatting = ratting => {
-        let result = [];
+        let result = []
         if (ratting && ratting > 0) {
             for (let i = 0; i < ratting; i++) {
                 result.push(<i key={i} className="fa fa-star"></i>)
@@ -17,11 +19,16 @@ const ProductItemHot = props => {
                 result.push(<i key={j + 5} className="fa fa-star-o"></i>)
             }
         }
-        return result;
+        return result
     }
 
     const onAddToCart = product => {
         addToCard(product)
+        changeMessage(message.MESSAGE_ADD)
+    }
+
+    const setProductDetail = product => {
+        setProduct(product)
     }
 
     return (
@@ -35,7 +42,7 @@ const ProductItemHot = props => {
                     />
                 </span>
                 <div className="card-img">
-                    <Link to='/product-detail'>
+                    <Link to='/product-detail' onClick={() => setProductDetail(product)}>
                         <img
                             src={product.product_hot.images}
                             alt={product.product_hot.name}
@@ -60,7 +67,7 @@ const ProductItemHot = props => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
 const mapStateToProps = state => {
@@ -73,8 +80,14 @@ const mapDispatchToProps = (dispatch, props) => {
     return {
         addToCard: (product) => {
             dispatch(Product_Cart_dispatch(product))
-        }   
+        },
+        changeMessage: message => {
+            dispatch(changeMessage_add_dispatch(message))
+        },
+        setProduct: product => {
+            dispatch(axios_API_dispatch_product_detail(product))
+        }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductItemHot);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductItemHot)

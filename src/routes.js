@@ -5,6 +5,7 @@ import PrdoductCartPage from './page/ProductCartPage/ProductCartPage';
 import ProductDetailPage from './page/ProductDetailPage/ProductDetailPage';
 import NotFoundPage from './page/NotFoundPage/NotFoundPage';
 import ContactPage from './page/ContactPage/ContactPage';
+import ProductPage from './page/ProductPage/ProductPage';
 
 const routes = [
     {
@@ -31,6 +32,36 @@ const routes = [
         path: '/contact',
         exact: false,
         main: () => <ContactPage />
+    },
+    {
+        path: '/samsung',
+        exact: false,
+        main: () => <ProductPage />
+    },
+    {
+        path: '/apple',
+        exact: false,
+        main: () => <ProductPage />
+    },
+    {
+        path: '/oppo',
+        exact: false,
+        main: () => <ProductPage />
+    },
+    {
+        path: '/xiaomi',
+        exact: false,
+        main: () => <ProductPage />
+    },
+    {
+        path: '/huawei',
+        exact: false,
+        main: () => <ProductPage />
+    },
+    {
+        path: '/lg',
+        exact: false,
+        main: () => <ProductPage />
     },
     {
         path: '',

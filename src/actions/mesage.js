@@ -38,3 +38,28 @@ export const changeMessagePay_Dispatch = message => {
         dispatch(changeMessagePay(message))
     }
 }
+
+export const changeMessage_refert = () => {
+    return {
+        type: TypesMessage.MESSAGE_REFERT
+    }
+}
+
+export const changeMessage_Dispatch_refert = () => {
+    return dispatch => {
+        dispatch(changeMessage_refert())
+    }
+}
+
+export const changeMessage_add = message => {
+    return {
+        type: TypesMessage.MESSAGE_ADD,
+        message
+    }
+}
+
+export const changeMessage_add_dispatch = message => {
+    return dispatch => {
+        dispatch(changeMessage_add(message))
+    }
+}
