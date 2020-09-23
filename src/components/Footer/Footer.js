@@ -23,7 +23,6 @@ const Footer = props => {
 
     return (
         <>
-            <hr className="my-4" width="85%" />
             <footer>
                 <div className="container-fluid padding">
                     <div className="row text-center">

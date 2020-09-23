@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MessageProductRalated from '../../components/ConstType/MessageProductRalated';
 import ProductRalated from '../../components/Content/ProductRalated';
+import ProductRalatedItem from '../../components/Content/ProductRalatedItem';
 import ProductDetailItem from './ProductDetailItem';
 
 const ProductDetailPage = props => {
@@ -27,6 +28,16 @@ const ProductDetailPage = props => {
         if (images.length > 0) {
             result = images.map((image, index) => {
                 return <ProductDetailItem key={index} image={image} />
+            })
+        }
+        return result
+    }
+
+    const onShowProductDetail = involve => {
+        let result = null
+        if (involve.length > 0) {
+            result = involve.map((e, index) => {
+                return <ProductRalatedItem key={index} e={e} />
             })
         }
         return result
@@ -85,7 +96,9 @@ const ProductDetailPage = props => {
                     </div>
                 </div>
                 <MessageProductRalated />
-                <ProductRalated />
+                <ProductRalated>
+                    {onShowProductDetail(productDetails.product_discount.details.involve)}
+                </ProductRalated>
             </>
         )
     }
@@ -143,7 +156,9 @@ const ProductDetailPage = props => {
                     </div>
                 </div>
                 <MessageProductRalated />
-                <ProductRalated />
+                <ProductRalated>
+                    {onShowProductDetail(productDetails.product.details.involve)}
+                </ProductRalated>
             </>
         )
     }
@@ -201,7 +216,9 @@ const ProductDetailPage = props => {
                     </div>
                 </div>
                 <MessageProductRalated />
-                <ProductRalated />
+                <ProductRalated>
+                    {onShowProductDetail(productDetails.product_hot.details.involve)}
+                </ProductRalated>
             </>
         )
     }

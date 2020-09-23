@@ -8,6 +8,11 @@ import Products_Discount from './Products_Discount';
 import Message from './Message';
 import MessagePay from './MessagePay';
 import ProductDetail from './ProductDetail';
+import SeeMore from './SeeMore';
+import SearchPrice from './SearchPrice';
+import FillterName from './FillterName';
+import FillterNameHot from './FillterNameHot';
+import FillterNameDiscount from './FillterNameDiscount';
 
 const myReducers = combineReducers({
     Products,
@@ -18,7 +23,12 @@ const myReducers = combineReducers({
     Products_Discount,
     Message,
     MessagePay,
-    ProductDetail
+    ProductDetail,
+    SeeMore,
+    SearchPrice,
+    FillterName,
+    FillterNameHot,
+    FillterNameDiscount
 })
 
 export default myReducers;

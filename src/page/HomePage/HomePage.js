@@ -15,7 +15,18 @@ import SlidesProduct from '../../components/Slies/SlidesProduct';
 
 const HomePage = (props) => {
 
-    const { axiosAPI, products, axiosAPI_product_hot, products_hot, axiosAPI_product_discount, products_discount } = props;
+    const {
+        axiosAPI,
+        products,
+        axiosAPI_product_hot,
+        products_hot,
+        axiosAPI_product_discount,
+        products_discount, seeMore,
+        searchPrice,
+        fillterName,
+        fillterNameHot,
+        fillterNameDiscount
+    } = props;
 
     useEffect(() => {
         axiosAPI();
@@ -26,31 +37,88 @@ const HomePage = (props) => {
         axiosAPI_product_discount();
     }, [axiosAPI_product_discount])
 
-    const onShowProductList = products => {
-        let result = null;
+    const onShowProductList = (products, seeMore, searchPrice, fillterName) => {
+        let result = null
+        if (fillterName.name) {
+            products = products.filter(filte => {
+                return filte.product.name.toLowerCase().indexOf(fillterName.name.toLowerCase()) !== -1
+            })
+        }
         if (products && products.length > 0) {
             result = products.map((product, index) => {
-                return <ProductItem key={index} product={product} />
+                if (searchPrice !== 1 && searchPrice !== 2) {
+                    if (index < seeMore) {
+                        return <ProductItem key={index} product={product} />
+                    }
+                }
+                if (searchPrice === 1) {
+                    if (product.product.price <= 500) {
+                        if (index < seeMore) {
+                            return <ProductItem key={index} product={product} />
+                        }
+                    }
+                }
+                if (searchPrice === 2) {
+                    if (product.product.price > 500) {
+                        if (index < seeMore) {
+                            return <ProductItem key={index} product={product} />
+                        }
+                    }
+                }
+                return null
+            })
+        }
+
+        return result;
+    }
+
+    const onShowProductListHot = (products_hot, searchPrice, fillterNameHot) => {
+        let result = null;
+        if (fillterNameHot) {
+            products_hot = products_hot.filter(product => product.product_hot.name.toLowerCase().indexOf(fillterNameHot.name.toLowerCase()) !== -1)
+        }
+        if (products_hot && products_hot.length > 0) {
+            result = products_hot.map((product, index) => {
+                if (searchPrice !== 3 && searchPrice !== 4) {
+                    return <ProductItemHot key={index} product={product} />
+                }
+                if (searchPrice === 3) {
+                    if (product.product_hot.price <= 500) {
+                        return <ProductItemHot key={index} product={product} />
+                    }
+                }
+                if (searchPrice === 4) {
+                    if (product.product_hot.price > 500) {
+                        return <ProductItemHot key={index} product={product} />
+                    }
+                }
+                return ''
             })
         }
         return result;
     }
 
-    const onShowProductListHot = products => {
+    const onShowProductListDiscount = (products_discount, searchPrice, fillterNameDiscount) => {
         let result = null;
-        if (products && products.length > 0) {
-            result = products.map((product, index) => {
-                return <ProductItemHot key={index} product={product} />
-            })
+        if (fillterNameDiscount) {
+            products_discount = products_discount.filter(product => product.product_discount.name.toLowerCase().indexOf(fillterNameDiscount.name.toLowerCase()) !== -1)
         }
-        return result;
-    }
-
-    const onShowProductListDiscount = products => {
-        let result = null;
-        if (products && products.length > 0) {
-            result = products.map((product, index) => {
-                return <ProductItemDiscount key={index} product={product} />
+        if (products_discount && products_discount.length > 0) {
+            result = products_discount.map((product, index) => {
+                if (searchPrice !== 5 && searchPrice !== 6) {
+                    return <ProductItemDiscount key={index} product={product} />
+                }
+                if (searchPrice === 5) {
+                    if (product.product_discount.price <= 500) {
+                        return <ProductItemDiscount key={index} product={product} />
+                    }
+                }
+                if (searchPrice === 6) {
+                    if (product.product_discount.price > 500) {
+                        return <ProductItemDiscount key={index} product={product} />
+                    }
+                }
+                return ''
             })
         }
         return result;
@@ -61,16 +129,16 @@ const HomePage = (props) => {
             <Slies />
             <MessageType />
             <ProductList>
-                {onShowProductList(products)}
+                {onShowProductList(products, seeMore, searchPrice, fillterName)}
             </ProductList>
             <SlidesProduct />
             <MessageProductHot />
             <ProductListHot>
-                {onShowProductListHot(products_hot)}
+                {onShowProductListHot(products_hot, searchPrice, fillterNameHot)}
             </ProductListHot>
             <MessageProductDiscount />
             <ProductsListDiscount>
-                {onShowProductListDiscount(products_discount)}
+                {onShowProductListDiscount(products_discount, searchPrice, fillterNameDiscount)}
             </ProductsListDiscount>
         </>
     );
@@ -80,7 +148,12 @@ const mapStateToProps = state => {
     return {
         products: state.Products,
         products_hot: state.Products_Hot,
-        products_discount: state.Products_Discount
+        products_discount: state.Products_Discount,
+        seeMore: state.SeeMore,
+        searchPrice: state.SearchPrice,
+        fillterName: state.FillterName,
+        fillterNameHot: state.FillterNameHot,
+        fillterNameDiscount: state.FillterNameDiscount
     }
 }
 

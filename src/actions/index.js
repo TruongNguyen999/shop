@@ -149,3 +149,78 @@ export const axios_API_dispatch_product_detail = product => {
         dispatch(axios_set_product_detail(product))
     }
 }
+
+// see more
+
+export const seemore = number => {
+    return {
+        type:Types.SEEMORE,
+        number
+    }
+}
+
+export const seemore_dispatch = number => {
+    return dispatch => {
+        dispatch(seemore(number))
+    }
+}
+
+// search one
+
+export const search_Price = number => {
+    return {
+        type: Types.SEARCH_ONE,
+        number
+    }
+}
+
+export const search_Price_dispatch = number => {
+    return dispatch => {
+        dispatch(search_Price(number))
+    }
+}
+
+// fillter Name
+
+export const fillter_Name = name => {
+    return {
+        type: Types.FILLTER_NAME,
+        name
+    }
+}
+
+export const fillter_Name_dispatch = name => {
+    return dispatch => {
+        dispatch(fillter_Name(name))
+    }
+}
+
+// filter Name hot
+
+export const fillter_Name_hot = name => {
+    return {
+        type: Types.FILLTER_NAME_HOT,
+        name
+    }
+}
+
+export const fillter_Name_dispatch_hot = name => {
+    return dispatch => {
+        dispatch(fillter_Name_hot(name))
+    }
+}
+
+// fillter Name discount
+
+export const fillter_Name_discount = name => {
+    return {
+        type: Types.FILLTER_NAME_DISCOUNT,
+        name
+    }
+}
+
+export const fillter_Name_dispatch_discount = name => {
+    return dispatch => {
+        dispatch(fillter_Name_discount(name))
+    }
+}
