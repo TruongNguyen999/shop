@@ -8,7 +8,6 @@ import ProductDetailItem from './ProductDetailItem';
 import { Product_Cart_dispatch } from './../../actions/index';
 import { changeMessage_add_dispatch } from './../../actions/mesage';
 import * as message from './../../contants/Message';
-// branch -2
 
 const ProductDetailPage = props => {
 
