@@ -10,6 +10,7 @@ const ProductListPage = (props) => {
 
     useEffect(() => {
         axiosAPI();
+        window.scrollTo(0, 0);
     }, [axiosAPI])
 
     const onShowProductList = products => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ProductCartItem from './ProductCartItem';
 import ProductCartResult from './ProductCartResult';
@@ -6,6 +6,10 @@ import ProductCartResult from './ProductCartResult';
 const PrdoductCartPage = (props) => {
 
     const { products, messages, history } = props;
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
 
     const onShowProductItem = products => {
         let result = null;

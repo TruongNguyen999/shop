@@ -31,6 +31,7 @@ const HomePage = (props) => {
     useEffect(() => {
         axiosAPI();
         axiosAPI_product_hot();
+        window.scrollTo(0, 0);
     }, [axiosAPI, axiosAPI_product_hot])
 
     useEffect(() => {

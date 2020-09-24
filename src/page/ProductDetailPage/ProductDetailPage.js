@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MessageProductRalated from '../../components/ConstType/MessageProductRalated';
@@ -13,6 +13,10 @@ import * as message from './../../contants/Message';
 const ProductDetailPage = props => {
 
     const { productDetails, add_product, changeMessage } = props
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
 
     const onShowratiing = ratting => {
         let result = []
