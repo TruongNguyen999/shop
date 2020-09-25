@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fillter_Name_dispatch, search_Price_dispatch } from './../../actions/index';
 import { seemore_dispatch } from './../../actions/index';
 
@@ -11,7 +12,7 @@ const MessageType = props => {
 
     useEffect(() => {
         onShowProduct(name)
-    },[onShowProduct, name])
+    }, [onShowProduct, name])
 
     const onShowPrice = number => {
         search_Price(number)
@@ -32,11 +33,14 @@ const MessageType = props => {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
-                <span className='col-md-3'>
-                    <button className='btn btn-outline-success' onClick={() => onShowPrice(1)}>Giá: Từ 100 $ - Đến 500 $</button>
+                <span className='col-md-2'>
+                    <Link to='/product-cart' className='btn btn-outline-dark mb-5-meg line-height-10 text-white h-75'><i className="fa fa-shopping-cart mr-2 text-white" aria-hidden="true"></i>Giỏ hàng</Link>
                 </span>
-                <span className='col-md-3'>
-                    <button className='btn btn-outline-info' onClick={() => onShowPrice(2)}>Giá: Từ 500 $ - Đến Trên 1000 $</button>
+                <span className='col-md-2'>
+                    <button className='btn btn-outline-success' onClick={() => onShowPrice(1)}>Giá: {'<='} 500 $</button>
+                </span>
+                <span className='col-md-2'>
+                    <button className='btn btn-outline-info' onClick={() => onShowPrice(2)}>Giá: {'>='} 500 $</button>
                 </span>
             </div>
         </div>
@@ -45,7 +49,7 @@ const MessageType = props => {
 
 const mapStateToProps = state => {
     return {
-        
+
     }
 }
 

@@ -15,7 +15,7 @@ const ProductCartResult = props => {
         } else {
             if (confirm('Bạn hãy lựa chọn sản phẩm mà bạn thích nhất!')) { //eslint-disable-line
                 history.goBack()
-            }else{
+            } else {
                 history.goForward()
             }
         }
@@ -45,30 +45,32 @@ const ProductCartResult = props => {
     }
 
     return (
-        <tr>
-            <td colSpan='2'>
-                {messages ? <><div className="alert alert-success container-fluid message-danger" role="alert">{messages}</div></> : ''}
-            </td>
-            <td>
-                <button type="button" onClick={() => buyMore(history)} className="btn btn-outline-secondary">Mua Tiếp</button>
-            </td>
-            <td>
-                <h4>
-                    <strong>Tổng Tiền</strong>
-                </h4>
-            </td>
-            <td>
-                <h4>
-                    <strong>
-                        {onshowSubTotal(products)}$
+        <>
+            <tr>
+                <td colSpan='2'>
+                    {messages ? <><div className="alert alert-success container-fluid message-danger" role="alert">{messages}</div></> : ''}
+                </td>
+                <td>
+                    <button type="button" onClick={() => buyMore(history)} className="btn btn-outline-secondary">Mua Tiếp</button>
+                </td>
+                <td>
+                    <h4>
+                        <strong>Tổng Tiền</strong>
+                    </h4>
+                </td>
+                <td>
+                    <h4>
+                        <strong>
+                            {onshowSubTotal(products)}$
                     </strong>
-                </h4>
-            </td>
-            <td colSpan="3">
-                <button type="button" onClick={() => payMent(history)} className="btn btn-primary waves-effect waves-light">Thanh Toán <i className="fa fa-angle-right right"></i>
-                </button>
-            </td>
-        </tr>
+                    </h4>
+                </td>
+                <td colSpan="3">
+                    <button type="button" onClick={() => payMent(history)} className="btn btn-primary waves-effect waves-light">Thanh Toán <i className="fa fa-angle-right right"></i>
+                    </button>
+                </td>
+            </tr>
+        </>
     );
 }
 

@@ -23,9 +23,12 @@ const ProductListPage = (props) => {
         return result;
     }
     return (
-        <ProductList>
-            {onShowProductList(products)}
-        </ProductList>
+        <>
+            
+            <ProductList>
+                {onShowProductList(products)}
+            </ProductList>
+        </>
     );
 }
 

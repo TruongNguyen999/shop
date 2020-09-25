@@ -76,7 +76,7 @@ const ProductDetailPage = props => {
                                 <img className='img-fluid' width='350px' src={productDetails.product_discount.images} alt={productDetails.product_discount.name} />
                             </a>
                             <div>
-                                <h4 className='title'>
+                                <h4 className='title mt-2'>
                                     {productDetails.product_discount.name}
                                 </h4>
                                 <ul className='ratting mr-0'>
@@ -140,7 +140,7 @@ const ProductDetailPage = props => {
                                 <img className='img-fluid' width='350px' src={productDetails.product.images} alt={productDetails.product.name} />
                             </a>
                             <div>
-                                <h4 className='title'>
+                                <h4 className='title mt-2'>
                                     {productDetails.product.name}
                                 </h4>
                                 <ul className='ratting mr-0'>
@@ -204,7 +204,7 @@ const ProductDetailPage = props => {
                                 <img className='img-fluid' width='350px' src={productDetails.product_hot.images} alt={productDetails.product_hot.name} />
                             </a>
                             <div>
-                                <h4 className='title'>
+                                <h4 className='title mt-2'>
                                     {productDetails.product_hot.name}
                                 </h4>
                                 <ul className='ratting mr-0'>
