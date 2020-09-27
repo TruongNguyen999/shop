@@ -1,29 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { changeMessagePay_Dispatch } from '../../actions/mesage';
-import * as message from './../../contants/Message';
-import { axios_API_clear_dispatch } from '../../actions';
 
 const ProductCartResult = props => {
-    const { products, payProduct, messages, clearCard, history } = props;
-    const payMent = history => {
-        if (products.length > 0) {
-            if (confirm('Bạn hãy xác nhận mua hàng!')) { //eslint-disable-line
-                payProduct(message.MESSAGE_PAY)
-                clearCard()
-            }
-        } else {
-            if (confirm('Bạn hãy lựa chọn sản phẩm mà bạn thích nhất!')) { //eslint-disable-line
-                history.goBack()
-            } else {
-                history.goForward()
-            }
-        }
-    }
+    const { products, messages, history } = props;
+    const [status, setStatus] = useState(false);
 
     const buyMore = history => {
         history.goBack()
     }
+
+    useEffect(() => {
+        if (products.length > 0) setStatus(true);
+    }, [products])
 
     const onshowSubTotal = products => {
         let result = 0;
@@ -66,8 +54,7 @@ const ProductCartResult = props => {
                     </h4>
                 </td>
                 <td colSpan="3">
-                    <button type="button" onClick={() => payMent(history)} className="btn btn-primary waves-effect waves-light">Thanh Toán <i className="fa fa-angle-right right"></i>
-                    </button>
+                    <a className="btn btn-primary" data-toggle="modal" href={(!status) ? '' : '#modal-id'}>Thanh Toán</a>
                 </td>
             </tr>
         </>
@@ -83,12 +70,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        payProduct: message => {
-            dispatch(changeMessagePay_Dispatch(message))
-        },
-        clearCard: () => {
-            dispatch(axios_API_clear_dispatch())
-        }
     }
 }
 

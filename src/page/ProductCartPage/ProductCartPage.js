@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ProductCartItem from './ProductCartItem';
 import ProductCartResult from './ProductCartResult';
+import ModalCart from './ModalCart';
 
 const PrdoductCartPage = (props) => {
 
@@ -9,7 +10,7 @@ const PrdoductCartPage = (props) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    },[])
+    }, [])
 
     const onShowProductItem = products => {
         let result = null;
@@ -46,6 +47,7 @@ const PrdoductCartPage = (props) => {
                     </table>
                 </div>
             </section>
+            <ModalCart history={history} />
         </>
     );
 }

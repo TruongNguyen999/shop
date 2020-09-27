@@ -145,7 +145,7 @@ export const axios_set_product_detail = product => {
 }
 
 export const axios_API_dispatch_product_detail = product => {
-    return  dispatch => {
+    return dispatch => {
         dispatch(axios_set_product_detail(product))
     }
 }
@@ -154,7 +154,7 @@ export const axios_API_dispatch_product_detail = product => {
 
 export const seemore = number => {
     return {
-        type:Types.SEEMORE,
+        type: Types.SEEMORE,
         number
     }
 }
@@ -222,5 +222,22 @@ export const fillter_Name_discount = name => {
 export const fillter_Name_dispatch_discount = name => {
     return dispatch => {
         dispatch(fillter_Name_discount(name))
+    }
+}
+
+// add customer
+
+export const add_customer = customer => {
+    return {
+        type: Types.ADD_CUSTOMER,
+        customer
+    }
+}
+
+export const add_customer_dispatch = customer => {
+    return dispatch => {
+        return callApi('customer', 'POST', customer).then(res => {
+            dispatch(add_customer(res.data))
+        })
     }
 }
