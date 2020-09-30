@@ -3,7 +3,6 @@ import HomePage from './page/HomePage/HomePage';
 import ProductListPage from './page/ProductListPage/ProductListPage';
 import PrdoductCartPage from './page/ProductCartPage/ProductCartPage';
 import ProductDetailPage from './page/ProductDetailPage/ProductDetailPage';
-import NotFoundPage from './page/NotFoundPage/NotFoundPage';
 import ContactPage from './page/ContactPage/ContactPage';
 import ProductPage from './page/ProductPage/ProductPage';
 
@@ -62,11 +61,6 @@ const routes = [
         path: '/lg',
         exact: false,
         main: () => <ProductPage />
-    },
-    {
-        path: '',
-        exact: false,
-        main: () => <NotFoundPage />
     }
 ]
 

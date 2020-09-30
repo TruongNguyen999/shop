@@ -1,13 +1,9 @@
 import React from 'react';
 import './App.css';
-import Menu from './components/Menu/Menu';
-import Footer from './components/Footer/Footer';
-import MutoTop from './components/Footer/MutoTop';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import routes from './routes';
-import Contact from './components/Contact/Contact';
+import routes from './routesAd';
 
-const App = () => {
+const App = props => {
 
   const onShowContent = routes => {
     let result = null;
@@ -18,14 +14,10 @@ const App = () => {
     }
     return <Switch>{result}</Switch>
   }
-  
+
   return (
     <Router>
-      <Menu />
       {onShowContent(routes)}
-      <Footer />
-      <Contact />
-      <MutoTop />
     </Router>
   );
 }

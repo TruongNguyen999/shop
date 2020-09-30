@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const ProductCartResult = props => {
-    const { products, messages, history } = props;
+    const { products, messages } = props;
     const [status, setStatus] = useState(false);
-
-    const buyMore = history => {
-        history.goBack()
-    }
 
     useEffect(() => {
         if (products.length > 0) setStatus(true);
@@ -39,7 +36,7 @@ const ProductCartResult = props => {
                     {messages ? <><div className="alert alert-success container-fluid message-danger" role="alert">{messages}</div></> : ''}
                 </td>
                 <td>
-                    <button type="button" onClick={() => buyMore(history)} className="btn btn-outline-secondary">Mua Tiếp</button>
+                    <Link to='/' className="btn btn-outline-secondary">Mua Tiếp</Link>
                 </td>
                 <td>
                     <h4>

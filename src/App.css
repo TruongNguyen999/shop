@@ -45,7 +45,7 @@ section .table-responsive .product-table td {
 
 .message-lable {
     margin: 20px 0px 20px 0px;
-    background:#10002d;
+    background: #10002d;
     color: white;
     font-size: 1rem;
     font-weight: bold;
@@ -53,11 +53,11 @@ section .table-responsive .product-table td {
     height: 50px;
 }
 
-.line-height-10{
+.line-height-10 {
     line-height: 10px;
 }
 
-.mb-5-meg{
+.mb-5-meg {
     margin-bottom: 5px;
 }
 
@@ -172,4 +172,45 @@ section .table-responsive .product-table td {
     text-decoration: none !important;
     color: white !important;
     display: block;
+}
+
+.login {
+    width: 800px;
+    height: 500px;
+    background-color: rgb(50, 50, 59);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login img {
+    width: 400px;
+    height: 100%;
+    float: left;
+}
+
+.login div {
+    float: left;
+    width: 400px;
+    height: 100%;
+    color: white;
+}
+
+.login div input {
+    background: none;
+    width: 80%;
+    transition: 0.8s;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login div input:focus{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.login div button {
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
