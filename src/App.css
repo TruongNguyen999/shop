@@ -205,7 +205,7 @@ section .table-responsive .product-table td {
     text-align: center;
 }
 
-.login div input:focus{
+.login div input:focus {
     width: 95%;
     margin: 0 auto;
 }
@@ -213,4 +213,51 @@ section .table-responsive .product-table td {
 .login div button {
     margin-left: 50%;
     transform: translateX(-50%);
+}
+
+.administration {
+    width: 100%;
+    height: 100%;
+}
+
+.administration .menu {
+    width: 350px;
+    background: #1c0a3d;
+    height: 100%;
+    position: fixed;
+}
+
+.administration .menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.administration .menu ul li {
+    list-style: none;
+    line-height: 70px;
+    border-radius: 5px;
+    padding-left: 20px;
+    transition: 0.5s;
+}
+
+.administration .menu ul li:hover{
+    background-color:  rgb(39, 16, 83);
+    font-size: 20px;
+}
+
+.administration .menu ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+}
+
+.administration .menu ul li a i{
+    line-height: 70px;
+}
+
+.administration .content {
+    width: 1186px;
+    height: 100%;
+    margin-left: 350px;
+    overflow: hidden;
 }
