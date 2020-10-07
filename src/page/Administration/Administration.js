@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Administration = props => {
+
+    const { history } = props;
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if(!user) history.push({pathname: '/'});
+    }, [history])
+
     return (
         <>
             <div className='administration'>
@@ -23,7 +31,7 @@ const Administration = props => {
                 </div>
                 <div className='content'>
 
-                    <div class="navbar">
+                    <div className="navbar">
                         <a className="navbar-brand" href="#">Nguyên Nhựt Trường</a>
                         <ul className="nav navbar-nav">
                             <li className="active">
@@ -32,71 +40,11 @@ const Administration = props => {
                         </ul>
                     </div>
                     <div className='main-content'>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
+                        <ul className="list-group">
+                            <li className="list-group-item">Item 1</li>
+                            <li className="list-group-item">Item 2</li>
+                            <li className="list-group-item">Item 3</li>
                         </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul><ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul><ul class="list-group">
-                            <li class="list-group-item">Item 1</li>
-                            <li class="list-group-item">Item 2</li>
-                            <li class="list-group-item">Item 3</li>
-                        </ul>
-                        
                     </div>
                 </div>
             </div>

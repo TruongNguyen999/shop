@@ -13,12 +13,12 @@ const routes = [
     {
         path: '/Login',
         exact: false,
-        main: () => <Login />
+        main: ({ history }) => <Login history={history} />
     },
     {
         path: '/Admin',
         exact: false,
-        main: () => <Administration />
+        main: ({ history }) => <Administration history={history} />
     },
     {
         path: '',

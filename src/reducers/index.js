@@ -13,6 +13,7 @@ import SearchPrice from './SearchPrice';
 import FillterName from './FillterName';
 import FillterNameHot from './FillterNameHot';
 import FillterNameDiscount from './FillterNameDiscount';
+import Users from './Users';
 
 const myReducers = combineReducers({
     Products,
@@ -28,7 +29,8 @@ const myReducers = combineReducers({
     SearchPrice,
     FillterName,
     FillterNameHot,
-    FillterNameDiscount
+    FillterNameDiscount,
+    Users
 })
 
 export default myReducers;

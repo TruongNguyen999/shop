@@ -241,3 +241,21 @@ export const add_customer_dispatch = customer => {
         })
     }
 }
+
+
+// get user
+
+export const get_user = users => {
+    return {
+        type: Types.GET_USER,
+        users
+    }
+}
+
+export const get_user_dispatch = () => {
+    return dispatch => {
+        return callApi('users', 'GET', null).then(res => {
+            dispatch(get_user(res.data))
+        })
+    }
+}
