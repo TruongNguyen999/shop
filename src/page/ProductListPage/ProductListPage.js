@@ -23,12 +23,9 @@ const ProductListPage = (props) => {
         return result;
     }
     return (
-        <>
-            
-            <ProductList>
-                {onShowProductList(products)}
-            </ProductList>
-        </>
+        <ProductList>
+            {onShowProductList(products)}
+        </ProductList>
     );
 }
 
@@ -40,7 +37,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        axiosAPI: () => {
+        axiosAPI: async () => {
             dispatch(axios_API_dispatch());
         }
     }

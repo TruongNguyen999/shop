@@ -20,8 +20,8 @@ const Login = props => {
     const onLogin = e => {
         e.preventDefault();
         if (checkUser && checkPass) {
-            history.push({pathname: '/Admin'});
-            localStorage.setItem('user',JSON.stringify(userName));
+            history.push({pathname: '/Admin', name: `${userName}`});
+            sessionStorage.setItem('user',JSON.stringify(userName));
         }
         setLogin(false);
     }

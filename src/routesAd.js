@@ -18,7 +18,7 @@ const routes = [
     {
         path: '/Admin',
         exact: false,
-        main: ({ history }) => <Administration history={history} />
+        main: ({ history, match }) => <Administration history={history} match={match} />
     },
     {
         path: '',
