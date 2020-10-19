@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { axios_API_dispatch } from '../../../actions';
-import ItemList from './ProductsItem/ItemList';
+import { axios_API_dispatch_product_discount } from '../../../actions';
+import ItemDiscount from './ProductsItem/ItemDiscount';
 
-const Products = props => {
+const ProductsDisCount = props => {
 
     const { Products, _getProducts } = props;
 
@@ -14,12 +14,14 @@ const Products = props => {
 
     const onShowProductsItem = products => {
         let result = null;
-        result = products.map((product, index) => <ItemList key={index} product={product} index={index} />)
+        result = products.map((product, index) => <ItemDiscount key={index} product={product} index={index} />)
         return result;
     }
+
     return (
         <>
-            <button type="button" className="btn btn-success my-2 ml-3">Thêm Sản Phẩm</button>
+            {/* produt discount */}
+            <button type="button" className="btn btn-success my-2 ml-3">Thêm Sản Phẩm DisCount</button>
             <table className="table table-hover ml-3">
                 <thead>
                     <tr>
@@ -40,16 +42,16 @@ const Products = props => {
 
 const mapStateToProps = state => {
     return {
-        Products: state.Products
+        Products: state.Products_Discount
     }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
         _getProducts: () => {
-            dispatch(axios_API_dispatch())
+            dispatch(axios_API_dispatch_product_discount())
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsDisCount);

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ChartMain from './Chart/ChartMain';
 import News from './News/News';
-import Products from './Products/Products';
+import ProductsAll from './Products/ProductsAll';
 import Setting from './Setting/Setting';
 import Users from './Users/Users';
 
@@ -63,12 +63,12 @@ const Administration = props => {
                         <hr className='my-1' />
                         <li style={{ backgroundColor: `${admin ? 'rgb(55, 16, 83)' : ''}` }}
                             onClick={() => { setAdmin(true); setProduct(false); setNews(false); setUsers(false); setCog(false) }}>
-                            <Button ><i class="fa fa-building mr-3" aria-hidden="true"></i> Thống Kê</Button>
+                            <Button ><i className="fa fa-building mr-3" aria-hidden="true"></i> Thống Kê</Button>
                         </li>
                         <hr className='my-1' />
                         <li style={{ backgroundColor: `${cog ? 'rgb(55, 16, 83)' : ''}` }}
                             onClick={() => { setCog(true); setProduct(false); setNews(false); setUsers(false); setAdmin(false) }}>
-                            <Button ><i class="fa fa-cog mr-3" aria-hidden="true"></i> Cài Đặt</Button>
+                            <Button ><i className="fa fa-cog mr-3" aria-hidden="true"></i> Cài Đặt</Button>
                         </li>
                     </ul>
                 </div>
@@ -83,7 +83,7 @@ const Administration = props => {
                     </div>
                     <div className='main-content'>
                         {admin ? <ChartMain /> : null}
-                        {product ? <Products /> : null}
+                        {product ? <ProductsAll /> : null}
                         {news ? <News /> : null}
                         {users ? <Users /> : null}
                         {cog ? <Setting /> : null}

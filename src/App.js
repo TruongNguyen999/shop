@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import routes from './routesAd';
 
 const App = props => {
@@ -15,11 +15,21 @@ const App = props => {
     return <Switch>{result}</Switch>
   }
 
-  return (
-    <Router>
-      {onShowContent(routes)}
-    </Router>
-  );
+  const LinkTo = {
+    position: 'fixed',
+    left: '5px',
+    top: '95%',
+    zIndex: '999',
+    color: '#4b327c',
+    textDecoration: 'none'
+};
+
+return (
+  <Router>
+    <Link to="/login" style={LinkTo}><i className="fa fa-lock" aria-hidden="true"></i> Login</Link>
+    {onShowContent(routes)}
+  </Router>
+);
 }
 
 export default App;
